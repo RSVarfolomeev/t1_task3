@@ -9,14 +9,15 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>t1.school</groupId>
-	<artifactId>spring-starter-http-logger</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-	<name>spring-starter-http-logger</name>
+	<artifactId>http-logger-spring-boot-starter</artifactId>
+	<version>1.0.0</version>
+	<name>http-logger-spring-boot-starter</name>
 	<description>Spring boot starter for logging HTTP requests</description>
 	<properties>
 		<java.version>17</java.version>
 	</properties>
 	<dependencies>
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
@@ -52,6 +53,20 @@
 						</exclude>
 					</excludes>
 				</configuration>
+
+<!--				отключаем переупаковку-->
+				<executions>
+					<execution>
+						<id>repackage</id>
+						<goals>
+							<goal>repackage</goal>
+						</goals>
+						<configuration>
+							<attach>false</attach>
+						</configuration>
+					</execution>
+				</executions>
+
 			</plugin>
 		</plugins>
 	</build>
