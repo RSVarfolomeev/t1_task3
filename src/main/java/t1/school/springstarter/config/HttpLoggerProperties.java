@@ -11,7 +11,7 @@ public class HttpLoggerProperties {
      * Включение/выключение стартера логгирования http запросов.
      * Допустимые значения: true - включено, false - выключено.
      */
-    private Boolean enabled;
+    private Boolean enabled = false;
 
     /**
      * Уровень логирования для входящих http запросов.
