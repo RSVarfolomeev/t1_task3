@@ -68,7 +68,7 @@ https://github.com/RSVarfolomeev/t1_task3/archive/refs/heads/master.zip
 - Метод №1: откройте данный проект в IntelliJ IDEA, откройте панель управления Maven,
 перейдите по иерархии вниз **http-logger-spring-boot-starter** --> **Lifecycle** и нажмите последовательно шестеренки **clean**, **install**.
 
-- Метод №2: из корневой папки этого проекта в командной строке выполнить команду:
+- Метод №2: если на машине установлен Apache Maven не в составе IntelliJ IDEA, то из корневой папки этого проекта в командной строке выполнить команду:
 ```
 mvn clean install
 ```
