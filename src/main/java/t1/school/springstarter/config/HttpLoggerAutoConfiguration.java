@@ -25,13 +25,13 @@ public class HttpLoggerAutoConfiguration {
 
     @Bean
     public WebMvcConfigurer mvcConfig(List<HandlerInterceptor> loggingInterceptors) {
-        log.info("Добавление WebMvcConfigurer");
+        log.info("Http-logger-spring-boot-starter: добавление WebMvcConfigurer");
         return new WebMvcConfig(loggingInterceptors);
     }
 
     @Bean
     public LoggerInterceptor loggerInterceptor() {
-        log.info("Добавление LoggerInterceptor");
+        log.info("Http-logger-spring-boot-starter: добавление LoggerInterceptor");
         return new LoggerInterceptor(httpLoggerProperties);
     }
 }

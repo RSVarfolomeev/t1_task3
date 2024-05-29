@@ -5,7 +5,6 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import lombok.NonNull;
 import lombok.extern.slf4j.Slf4j;
-import org.slf4j.Logger;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 import t1.school.springstarter.config.HttpLoggerProperties;
@@ -44,7 +43,7 @@ public class LoggerInterceptor implements HandlerInterceptor {
                 + System.lineSeparator() + request.getRequestURI()
                 + System.lineSeparator() + headers;
 
-        sendLog(log, httpLoggerProperties.getPreHandleLogLevel(), message);
+        sendLog(httpLoggerProperties.getPreHandleLogLevel(), message);
         return true;
     }
 
@@ -70,7 +69,7 @@ public class LoggerInterceptor implements HandlerInterceptor {
                 + System.lineSeparator() + response.getContentType()
                 + System.lineSeparator() + headers;
 
-        sendLog(log, httpLoggerProperties.getPostHandleLogLevel(), message);
+        sendLog(httpLoggerProperties.getPostHandleLogLevel(), message);
     }
 
     /**
@@ -81,21 +80,21 @@ public class LoggerInterceptor implements HandlerInterceptor {
         if (ex != null) {
             String message = "При запросе произошла ошибка:" + System.lineSeparator() + ex;
 
-            sendLog(log, httpLoggerProperties.getAfterCompletionLogLevel(), message);
+            sendLog(httpLoggerProperties.getAfterCompletionLogLevel(), message);
         }
     }
 
-    public void sendLog(Logger logger, String level, String message) {
+    private void sendLog(String level, String message) {
         if (level.equals("trace")) {
-            logger.trace(message);
+            log.trace(message);
         } else if (level.equals("debug")) {
-            logger.debug(message);
+            log.debug(message);
         } else if (level.equals("warn")) {
-            logger.warn(message);
+            log.warn(message);
         } else if (level.equals("error")) {
-            logger.error(message);
+            log.error(message);
         } else {
-            logger.info(message);
+            log.info(message);
         }
     }
 }
